@@ -9,6 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEBLAB#1</title>
     <link rel="stylesheet" href="/static/style.css">
+    <script>
+        const points = [
+            <?php
+                if (isset($_SESSION['attempts'])) {
+                    foreach($_SESSION['attempts'] as $index=>$attempt) {
+                        srand($index);
+                        $random_color = 'rgb(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ')';
+                        printf('{\'x\':%s,\'y\':%s, \'color\':\'%s\'},', $attempt['x'], $attempt['y'], $random_color);
+                    }
+                }
+            ?>
+        ];
+    </script>
 </head>
 <body>
     <header>
@@ -19,12 +32,16 @@
 
     <div class="main">
         <div class="panel" style="text-align: center;">
-            <img src="/static/task_graph.png" alt="Task grpah">
+            <canvas id="graph" width="300" height="300">
+                <img src="/static/task_graph.png" alt="Task grpah" width="300" height="300">
+            </canvas>
             <p>
                 <?php
                     if (isset($_SESSION['hit_message'])) {
                         echo($_SESSION['hit_message']);
                         unset($_SESSION['hit_message']);
+                    } else {
+                        echo('Click anywhere on the graph to send a point');
                     }
                 ?>
             </p>
@@ -43,6 +60,7 @@
                         <option value="1">1</option>
                         <option value="1.5">1.5</option>
                         <option value="2">2</option>
+                        <option id="x-from-graph-click" value="" disabled></option>
                     </select>
                 </div>
                 <div class="row">
@@ -128,7 +146,7 @@
             </div>
         </div>
     </div>
-
+    <script src="/static/grapher.js"></script>
     <script src="/static/validation.js"></script>
 </body>
 </html>

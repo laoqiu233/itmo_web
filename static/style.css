@@ -172,6 +172,10 @@ td, th {
     padding: 5px 13px;
 }
 
+#graph {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
     :root {
         font-size: 10px;
