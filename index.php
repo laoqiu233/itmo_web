@@ -85,42 +85,44 @@
         
         <div id="results" class="panel">
             <h1>Results</h1>
-            <table>
-                <tr>
-                    <th>Attempt #</th>
-                    <th>X</th>
-                    <th>Y</th>
-                    <th>R</th>
-                    <th>Result</th>
-                    <th>Attempt time</th>
-                    <th>Processing time</th>
-                </tr>
-                <?php
-                    if (isset($_SESSION['attempts'])) {
-                        foreach($_SESSION['attempts'] as $index=>$attempt) {
-                            echo('<tr>');
-                            
-                            printf('<td>%s</td>', $index+1);
+            <div class="overflow-scroll">
+                <table>
+                    <tr>
+                        <th>Attempt #</th>
+                        <th>X</th>
+                        <th>Y</th>
+                        <th>R</th>
+                        <th>Result</th>
+                        <th>Attempt time</th>
+                        <th>Processing time</th>
+                    </tr>
+                    <?php
+                        if (isset($_SESSION['attempts'])) {
+                            foreach($_SESSION['attempts'] as $index=>$attempt) {
+                                echo('<tr>');
+                                
+                                printf('<td>%s</td>', $index+1);
 
-                            printf('<td>%s</td>', $attempt['x']);
-                            printf('<td>%s</td>', $attempt['y']);
-                            printf('<td>%s</td>', $attempt['r']);
+                                printf('<td>%s</td>', $attempt['x']);
+                                printf('<td>%s</td>', $attempt['y']);
+                                printf('<td>%s</td>', $attempt['r']);
 
-                            if ($attempt['hit']) {
-                                echo('<td class="theme-color">HIT</td>');
-                            } else {
-                                echo('<td class="warning">MISS</td>');
+                                if ($attempt['hit']) {
+                                    echo('<td class="theme-color">HIT</td>');
+                                } else {
+                                    echo('<td class="warning">MISS</td>');
+                                }
+
+                                printf('<td>%s</td>', date('Y-m-d H:i:s', $attempt['attempt_time']) . ' UTC');
+
+                                printf('<td>%s ms</td>', $attempt['process_time']);
+        
+                                echo('</tr>');
                             }
-
-                            printf('<td>%s</td>', date('Y-m-d H:i:s', $attempt['attempt_time']) . ' UTC');
-
-                            printf('<td>%s ms</td>', $attempt['process_time']);
-    
-                            echo('</tr>');
                         }
-                    }
-                ?>
-            </table>
+                    ?>
+                </table>
+            </div>
         </div>
     </div>
 

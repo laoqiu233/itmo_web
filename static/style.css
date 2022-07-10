@@ -147,17 +147,21 @@ button:disabled:hover {
     flex-grow: 1;
 }
 
+.overflow-scroll {
+    overflow-x: scroll;
+}
+
 #form {
-    max-width: 300px;
-    min-width: 300px;
+    width: 300px;
 }
 
 #results {
-    min-width: 100%;
+    width: 100%;
 }
 
 #results table {
     width: 100%;
+    overflow-x: scroll;
 }
 
 table, td, th {
@@ -166,4 +170,18 @@ table, td, th {
 
 td, th {
     padding: 5px 13px;
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        font-size: 10px;
+    }
+
+    .panel, #form {
+        width: 100%;
+    }
+
+    .main {
+        width: 90%;
+    }
 }
