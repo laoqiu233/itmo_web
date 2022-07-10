@@ -151,7 +151,7 @@ button:disabled:hover {
     overflow-x: scroll;
 }
 
-#form {
+#form-panel {
     width: 300px;
 }
 
@@ -177,7 +177,7 @@ td, th {
         font-size: 10px;
     }
 
-    .panel, #form {
+    .panel, #form-panel {
         width: 100%;
     }
 

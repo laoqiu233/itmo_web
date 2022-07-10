@@ -18,7 +18,7 @@
     </header>
 
     <div class="main">
-        <div class="panel">
+        <div class="panel" style="text-align: center;">
             <img src="/static/task_graph.png" alt="Task grpah">
             <p>
                 <?php
@@ -29,8 +29,8 @@
                 ?>
             </p>
         </div>
-        <div class="panel" id="form">
-            <form action="/send_point.php" method="post">    
+        <div class="panel" id="form-panel">
+            <form id="form" action="/send_point.php" method="post">    
                 <div class="row">
                     <label for="select-x">X</label>
                     <select name="x" id="select-x">
@@ -38,7 +38,7 @@
                         <option value="-1.5">-1.5</option>
                         <option value="-1">-1</option>
                         <option value="-0.5">-0.5</option>
-                        <option value="0" selected>0</option>
+                        <option value="0">0</option>
                         <option value="0.5">0.5</option>
                         <option value="1">1</option>
                         <option value="1.5">1.5</option>
@@ -55,26 +55,29 @@
                 <div class="row">
                     <label>R</label>
                     <div>
-                        <div class="row">
-                            <input type="radio" name="r" id="r-1" value="1">
-                            <label for="r-1">1</label>
+                        <div>
+                            <div class="row">
+                                <input type="radio" name="r" id="r-1" value="1">
+                                <label for="r-1">1</label>
+                            </div>
+                            <div class="row">
+                                <input type="radio" name="r" id="r-2" value="2">
+                                <label for="r-2">2</label>
+                            </div>
+                            <div class="row">
+                                <input type="radio" name="r" id="r-3" value="3">
+                                <label for="r-3">3</label>
+                            </div>
+                            <div class="row">
+                                <input type="radio" name="r" id="r-4" value="4">
+                                <label for="r-4">4</label>
+                            </div>
+                            <div class="row">
+                                <input type="radio" name="r" id="r-5" value="5">
+                                <label for="r-5">5</label>
+                            </div>
                         </div>
-                        <div class="row">
-                            <input type="radio" name="r" id="r-2" value="2">
-                            <label for="r-2">2</label>
-                        </div>
-                        <div class="row">
-                            <input type="radio" checked name="r" id="r-3" value="3">
-                            <label for="r-3">3</label>
-                        </div>
-                        <div class="row">
-                            <input type="radio" name="r" id="r-4" value="4">
-                            <label for="r-4">4</label>
-                        </div>
-                        <div class="row">
-                            <input type="radio" name="r" id="r-5" value="5">
-                            <label for="r-5">5</label>
-                        </div>
+                        <p id="input-r-warning" class="warning hidden" style="margin-top:5px"></p>
                     </div>
                 </div>
                 <div class="row">
