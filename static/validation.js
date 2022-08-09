@@ -45,7 +45,7 @@ function validateY(e) {
 
     let value = parseFloat(yInput.value);
 
-    if (!floatRegex.test(value) || Number.isNaN(value) || value < -5 || value > 5) {
+    if (!floatRegex.test(yInput.value) || Number.isNaN(value) || value < -5 || value > 5) {
         showWarning(yInputWarning, "Invalid Y value. It should be a float from -5 to 5 (Inclusive)");  
         submitButtonEnabler.yValid = false;
     }
