@@ -75,7 +75,7 @@
                     <div>
                         <div>
                             <div class="row">
-                                <input type="radio" name="r" id="r-1" value="1">
+                                <input type="radio" name="r" id="r-1" value="1" checked>
                                 <label for="r-1">1</label>
                             </div>
                             <div class="row">

@@ -1,10 +1,12 @@
 'use strict';
 
+const FLOAT_REGEX = /^-?\d+(?:\.\d+)?$/
 const yInput = document.getElementById("input-y");
 const yInputWarning = document.getElementById("input-y-warning");
-const submit = document.getElementById("form-submit");
 const formElement = document.getElementById("form");
 const rInputWarning = document.getElementById("input-r-warning");
+const submit = document.getElementById("form-submit");
+
 const submitButtonEnabler = {
     _xValid: true,
     _yValid: true,
@@ -40,12 +42,9 @@ function validateY(e) {
     // Clear warning text
     hideWarning(yInputWarning);
     submitButtonEnabler.yValid = true;
+    const value = parseFloat(yInput.value);
 
-    let floatRegex = /^\d+(?:\.\d+)?$/
-
-    let value = parseFloat(yInput.value);
-
-    if (!floatRegex.test(yInput.value) || Number.isNaN(value) || value < -5 || value > 5) {
+    if (!FLOAT_REGEX.test(yInput.value) || value < -5 || value > 5) {
         showWarning(yInputWarning, "Invalid Y value. It should be a float from -5 to 5 (Inclusive)");  
         submitButtonEnabler.yValid = false;
     }
@@ -56,9 +55,10 @@ yInput.dispatchEvent(new InputEvent('input'));
 
 function validateForm(e) {
     const formData = new FormData(formElement);
-    submitButtonEnabler.rValid = true;
     
     // Validate R
+    submitButtonEnabler.rValid = true;
+
     hideWarning(rInputWarning);
     if (!formData.has('r')) {
         showWarning(rInputWarning, "Please select a value for R");
