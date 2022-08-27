@@ -25,7 +25,6 @@
 </head>
 <body>
     <header>
-        <div class="gradient"></div>
         <h1><span class="theme-color">Tsiu</span> T.</h1>
         <h2>P3132 <span class="gray-color">Web Lab #1 | Вариант: 3218</span></h2>
     </header>

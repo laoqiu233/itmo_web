@@ -37,18 +37,17 @@ h1 {
     color: #808185;
 }
 
-.gradient {
-    background: linear-gradient(90deg, #0000 15%, #8338ec 100%);
-}
-
 header {
     position: relative;
     margin-bottom: 2rem;
     padding: 13px 30px;
     border-bottom: 1px solid #555;
+    background: transparent;
 }
 
-header .gradient {
+header::before {
+    content: "";
+    background: linear-gradient(90deg, #0000 15%, #8338ec 100%);
     z-index: -1;
     position: absolute;
     left: 0;
@@ -60,23 +59,23 @@ header .gradient {
     transition: opacity 0.3s ease-out;
 }
 
+header:hover::before {
+    opacity: 1;
+}
+
 header h2 {
     position: relative;
     transition: left 0.3s ease-out;
     left: 0;
 }
 
+header:hover h2 {
+    left: 17px;
+}
+
 header h2 span {
     opacity: 0;
     transition: opacity 0.3s ease-out;
-}
-
-header:hover .gradient {
-    opacity: 1;
-}
-
-header:hover h2 {
-    left: 17px;
 }
 
 header:hover h2 span {
