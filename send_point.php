@@ -3,7 +3,7 @@
 
     if (!(isset($_POST['x']) && isset($_POST['y']) && isset($_POST['r']))) {
         echo 'Not enough parameters';
-        http_response_code(400);
+        http_response_code(422);
     } else {
         $x = floatval($_POST['x']);
         $y = floatval($_POST['y']);
