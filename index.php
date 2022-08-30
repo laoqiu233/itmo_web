@@ -105,7 +105,7 @@
         
         <div id="results" class="panel">
             <h1>Results</h1>
-            <div class="overflow-scroll">
+            <div class="table-wrapper">
                 <table>
                     <tr>
                         <th>Attempt #</th>

@@ -146,10 +146,6 @@ button:disabled:hover {
     flex-grow: 1;
 }
 
-.overflow-scroll {
-    overflow-x: scroll;
-}
-
 #form-panel {
     width: 300px;
 }
@@ -158,9 +154,13 @@ button:disabled:hover {
     width: 100%;
 }
 
+#results .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
 #results table {
     width: 100%;
-    overflow-x: scroll;
 }
 
 table, td, th {
