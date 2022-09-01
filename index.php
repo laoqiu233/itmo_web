@@ -59,7 +59,7 @@
                         <option value="1">1</option>
                         <option value="1.5">1.5</option>
                         <option value="2">2</option>
-                        <option id="x-from-graph-click" value="" disabled></option>
+                        <option id="x-from-graph-click" value="" disabled hidden></option>
                     </select>
                 </div>
                 <div class="row">
