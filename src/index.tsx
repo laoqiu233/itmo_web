@@ -20,7 +20,7 @@ function App() {
         formData.set('r', point.r.toString());
         setLoading(true);
     
-        fetch('/api/send_point.php', {
+        fetch('api/send_point.php', {
             method: 'POST',
             body: formData
         })
@@ -42,7 +42,7 @@ function App() {
     }
 
     useEffect(() => {
-        fetch('/api/get_points.php')
+        fetch('api/get_points.php')
             .then(resp => {
                 if (resp.ok) {
                     return resp.json();
