@@ -37,22 +37,27 @@
             $_SESSION['hit_message'] = 'Miss!';
         }
 
+
+
         $attempt = array(
+            'id'=>1,
             'x'=>$x,
             'y'=>$y,
             'r'=>$r,
             'hit'=>$hit,
             'attempt_time'=>time(),
-            'process_time'=>(hrtime(true) - $start_time)/1000000
+            'process_time'=>(hrtime(true) - $start_time)/1000000,
+            'color'=>'rgb(' . rand(0, 255) . ',' . rand(0, 255) . ',' . rand(0, 255) . ')'
         );
 
         if (!isset($_SESSION['attempts'])) {
             $_SESSION['attempts'] = array($attempt);
         } else {
+            $attempt['id'] = count($_SESSION['attempts']) + 1;
             array_push($_SESSION['attempts'], $attempt);
         }
 
-        // Redirect back to home page
-        header('Location: /');
+        header('Content-Type: application/json');
+        echo(json_encode($_SESSION['attempts']));
     }
 ?>

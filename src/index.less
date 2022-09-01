@@ -2,6 +2,10 @@
     font-size: 14px;
 }
 
+@theme-color: #8338ec;
+@warning-color: #dc3545;
+@gray-color: #808185;
+
 * {
     margin: 0;
     padding: 0;
@@ -21,20 +25,16 @@ h1 {
     font-size: 3.4rem;
 }
 
-.hidden {
-    display: none;
-}
-
 .warning {
-    color: #dc3545;
+    color: @warning-color;
 }
 
-.theme-color {
-    color: #8338ec;
+.theme {
+    color: @theme-color;
 }
 
-.gray-color {
-    color: #808185;
+.gray {
+    color: @gray-color;
 }
 
 header {
@@ -43,43 +43,45 @@ header {
     padding: 13px 30px;
     border-bottom: 1px solid #555;
     background: transparent;
-}
 
-header::before {
-    content: "";
-    background: linear-gradient(90deg, #0000 15%, #8338ec 100%);
-    z-index: -1;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    &::before {
+        content: "";
+        background: linear-gradient(90deg, #0000 15%, #8338ec 100%);
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
 
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-}
+    h2 {
+        position: relative;
+        transition: left 0.3s ease-out;
+        left: 0;
 
-header:hover::before {
-    opacity: 1;
-}
+        span {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+    }
 
-header h2 {
-    position: relative;
-    transition: left 0.3s ease-out;
-    left: 0;
-}
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
 
-header:hover h2 {
-    left: 17px;
-}
+        h2 {
+            left: 17px;
 
-header h2 span {
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-}
-
-header:hover h2 span {
-    opacity: 1;
+            span {
+                opacity: 1;
+            }
+        }
+    }
 }
 
 label {
@@ -90,22 +92,22 @@ button {
     padding: 5px 10px;
 
     background: none;
-    border: #8338ec solid 1px;
+    border: @theme-color solid 1px;
     border-radius: 5px; 
-    color: #8338ec;
+    color: @theme-color;
 
     transition: all ease-out 0.3s;
 }
 
 button:hover {
     cursor: pointer;
-    background: #8338ec;
+    background: @theme-color;
     color: #FCF7F8;
 }
 
 button:disabled {
-    border-color: #808185;
-    color: #808185;
+    border-color: @gray-color;
+    color: @gray-color;
 }
 
 button:disabled:hover {
