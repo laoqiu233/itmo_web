@@ -28,7 +28,7 @@ function Results({ points } : ResultsProps) {
                                     <td>{v.y}</td>
                                     <td>{v.r}</td>
                                     <td className={v.hit ? 'theme' : 'warning'}>{v.hit ? 'HIT' : 'MISS'}</td>
-                                    <td>{new Date(v.attempt_time).toUTCString()}</td>
+                                    <td>{new Date(v.attempt_time*1000).toLocaleString()}</td>
                                     <td>{v.process_time} ms</td>
                                 </tr>
                             ))
