@@ -6,6 +6,8 @@
   "private": true,
   "scripts": {
     "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "./deploy.sh",
     "serve": "webpack serve"
   },
   "devDependencies": {

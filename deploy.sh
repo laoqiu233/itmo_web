@@ -1,3 +1,4 @@
+echo "rm -r ~/public_html/lab1" | ssh helios
 mkdir ./lab1
 cp ./dist/* ./lab1/
 cp -r ./api ./lab1/
